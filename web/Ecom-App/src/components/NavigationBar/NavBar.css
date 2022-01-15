@@ -1,0 +1,14 @@
+.nav-container {
+  position: sticky;
+  top: 0;
+}
+.nav-box-shadow {
+  box-shadow: 0 2px 2px 2px #e6e6e6;
+}
+.nav-padding-700 {
+  padding: 0.7em;
+}
+
+.nav-title {
+  font-size: 2rem;
+}
