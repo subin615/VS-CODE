@@ -6,7 +6,7 @@ import AuthorizedRoute from './authorized/AuthorizedRoute';
 const Navigation:React.FC = () => {
   const [token, _] = useState(()=>{
     const getToken = localStorage.getItem('token')
-    if(!getToken)return false
+    // if(!getToken)return false
     return true
   })
     return (
@@ -14,7 +14,7 @@ const Navigation:React.FC = () => {
         <Suspense fallback={<div>...Loading</div>}>
           {token ?
           <AuthorizedRoute />:
-          <AuthenicationRoute/>
+          <AuthenicationRoute />
           }
         </Suspense>
       </Router>

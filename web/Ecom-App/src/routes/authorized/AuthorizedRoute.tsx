@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import NavBar from '../../components/navigationBar/NavBar';
 import {Routes, Route} from 'react-router-dom'
+import Home from '../../pages/home/Home'
 
 const AuthorizedRoute:React.FC = () => {
+    const windowPath  = window.location.pathname
     return (
-        <Routes>
-            <Route path="/" element={<NavBar/>}/>
-        </Routes>
+        <>
+            <NavBar/>
+            <Routes>
+                <Route path='/' element={<Home/>}/>
+                <Route path='/home' element={<Home/>}/>
+            </Routes>
+        </>
     )
 }
 
