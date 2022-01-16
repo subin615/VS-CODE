@@ -1,11 +1,11 @@
-import React from "react";
+import React, {Suspense,lazy} from "react";
 import ReactDOM from "react-dom";
-import NavBar from './components/NavigationBar/NavBar'
+import Navigation from './routes/index'
 import "./index.css";
 
 const App:React.FC = () => (
   <div className="container">
-    <NavBar />
+    <Navigation/>
   </div>
 );
 
