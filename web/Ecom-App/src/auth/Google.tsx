@@ -6,19 +6,18 @@ import {
   GoogleLogout,
 } from "react-google-login";
 
+type GoogleAuth = GoogleLoginResponse | GoogleLoginResponseOffline;
+
 const GoogleSignUp: React.FC = () => {
-  const loginSuccess = (
-    res: GoogleLoginResponse | GoogleLoginResponseOffline
-  ) => {
+  const loginSuccess = (res: GoogleAuth) => {
     console.log("login success", res);
   };
-  const loginFailure = (
-    res: GoogleLoginResponse | GoogleLoginResponseOffline
-  ) => {
+  const loginFailure = (res: GoogleAuth) => {
     console.log("login failure", res);
   };
 
-  const logout = () => {};
+  //function for logout
+  //   const logout = () => {};
   return (
     <div>
       <GoogleLogin
