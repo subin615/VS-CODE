@@ -1,21 +1,17 @@
-import React from 'react';
-import InputAdornment from '@mui/material/InputAdornment';
-import TextField from '@mui/material/TextField';
-import AccountCircle from '@mui/icons-material/AccountCircle';
+import React from "react";
+import InputAdornment from "@mui/material/InputAdornment";
+import TextField from "@mui/material/TextField";
+import AccountCircle from "@mui/icons-material/AccountCircle";
 
-const Input:React.FC =() =>{
-    return (
-        <TextField
-        id="input-with-icon-textfield"
-        label="TextField"
-        InputProps={{
-          startAdornment: (
-            <InputAdornment position="start">
-              <AccountCircle />
-            </InputAdornment>
-          ),
-        }}
-        variant="standard"
-      />
-    )
+interface InputProps {
+  label: string;
+  variant?: Variants;
+  id?: string;
 }
+
+type Variants = "standard" | "filled" | "outlined" | undefined;
+const Input: React.FC<InputProps> = ({ label, variant = "standard", id, ...props }) => {
+  return <TextField id={id} label={label} variant={variant} {...props} />;
+};
+
+export default Input;
