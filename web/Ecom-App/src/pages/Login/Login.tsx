@@ -64,7 +64,7 @@ const Login: React.FC = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" />
+                  <Input type="email" placeholder="Email address" />
                 </InputGroup>
               </FormControl>
               <FormControl>
