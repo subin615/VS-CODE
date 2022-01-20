@@ -37,9 +37,9 @@ const Login: React.FC = () => {
       flexDirection="column"
       width="100wh"
       height="100vh"
-      backgroundColor="gray.200"
       justifyContent="center"
       alignItems="center"
+      className="login__background-color"
     >
       <Stack
         flexDir="column"
@@ -48,7 +48,7 @@ const Login: React.FC = () => {
         alignItems="center"
       >
         <Avatar className="primary__background-color" />
-        <Heading className="primary__color">Welcome</Heading>
+        <Heading color="white">Welcome</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form>
             <Stack
@@ -102,7 +102,7 @@ const Login: React.FC = () => {
               >
                 Login
               </Button>
-              <Box display="inline-flex">
+              <Box className="login__actions">
                 <Box mt={3}>
                   New to us?{" "}
                   <Link className="primary__color" href="#">

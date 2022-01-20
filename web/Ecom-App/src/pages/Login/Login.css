@@ -100,9 +100,19 @@
   background-color: var(--primary-color) !important;
 }
 .primary__color {
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
 }
 
 .primary__background-color {
   background-color: var(--primary-color) !important;
+}
+.login__background-color {
+  background: linear-gradient(45deg, #8d3aca, var(--primary-color));
+}
+.login__actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 0;
 }
