@@ -6,6 +6,7 @@ import {
   GoogleLogout,
 } from "react-google-login";
 import { ClientInfo } from "../util/constants";
+import "./google.css";
 
 type GoogleAuth = GoogleLoginResponse | GoogleLoginResponseOffline;
 

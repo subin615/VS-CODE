@@ -1,0 +1,4 @@
+.googleLogin > [type="button"],
+.googleLogin > [type="button"] > div {
+  border-radius: 20px !important;
+}
