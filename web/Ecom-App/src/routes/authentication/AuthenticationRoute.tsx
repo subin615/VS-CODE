@@ -7,8 +7,8 @@ const Login = lazy(() => import('../../pages/Login/Login'))
 const AuthenicationRoute: React.FC = () => {
     return (
         <Routes>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/" element={<Registration />}></Route>
+            <Route path="/" element={<Login />}></Route>
+            <Route path="/registration" element={<Registration />}></Route>
         </Routes>
 
     )
