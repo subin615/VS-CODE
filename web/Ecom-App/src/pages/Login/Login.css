@@ -69,10 +69,11 @@
   position: absolute;
   bottom: 30px;
   border-radius: 4px;
-  background-color: #06d48c;
+  background-color: var(--primary-color) !important;
   border: none;
   padding: 0.5rem;
   box-shadow: 0px 2px 2px 1px gray;
+  color: white;
 }
 
 .login__subTitle {
@@ -98,6 +99,10 @@
 .login__button {
   background-color: var(--primary-color) !important;
 }
-.eye-color {
+.primary__color {
   color: var(--primary-color);
+}
+
+.primary__background-color {
+  background-color: var(--primary-color) !important;
 }
