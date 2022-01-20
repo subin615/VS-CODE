@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import NavBar from "../../components/navigationBar/NavBar";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "../../pages/home/Home";
 
 const AuthorizedRoute: React.FC = () => {
-  console.log(useLocation());
+  const windowPath = window.location.pathname;
   return (
     <>
       <NavBar />
@@ -15,5 +15,3 @@ const AuthorizedRoute: React.FC = () => {
     </>
   );
 };
-
-export default AuthorizedRoute;
