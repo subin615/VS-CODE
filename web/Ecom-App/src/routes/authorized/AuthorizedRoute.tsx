@@ -15,3 +15,5 @@ const AuthorizedRoute: React.FC = () => {
     </>
   );
 };
+
+export default AuthorizedRoute;

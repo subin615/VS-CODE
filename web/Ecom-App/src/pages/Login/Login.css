@@ -95,3 +95,9 @@
 .eye-color {
   color: var(--primary-color);
 }
+.login__button {
+  background-color: var(--primary-color) !important;
+}
+.eye-color {
+  color: var(--primary-color);
+}

@@ -1,3 +1,11 @@
+:root{
+  --primary-color:teal;
+}
+
+.font-size__1000{
+  font-size: 1rem !important;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f1f1f1;
@@ -8,6 +16,7 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
+  
 }
 
 /* Remove default margin */
