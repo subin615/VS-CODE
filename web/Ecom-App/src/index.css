@@ -1,8 +1,8 @@
-:root{
-  --primary-color:teal;
+:root {
+  --primary-color: rgba(115, 112, 216, 1);
 }
 
-.font-size__1000{
+.font-size__1000 {
   font-size: 1rem !important;
 }
 
@@ -16,7 +16,6 @@ body {
 *::before,
 *::after {
   box-sizing: border-box;
-  
 }
 
 /* Remove default margin */

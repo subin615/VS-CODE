@@ -14,7 +14,7 @@ import {
   FormControl,
   FormHelperText,
   InputRightElement,
-  Text
+  Text,
 } from "@chakra-ui/react";
 
 import { FaUserAlt, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
@@ -47,8 +47,8 @@ const Login: React.FC = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Avatar bg="teal.500" />
-        <Heading color="teal.400">Welcome</Heading>
+        <Avatar className="primary__background-color" />
+        <Heading className="primary__color">Welcome</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form>
             <Stack
@@ -80,7 +80,11 @@ const Login: React.FC = () => {
                   />
                   <InputRightElement width="4.7rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                      {showPassword ? <CFaEyeSlash className="eye-color" /> : <CFaEye className="eye-color" />}
+                      {showPassword ? (
+                        <CFaEyeSlash className="eye-color" />
+                      ) : (
+                        <CFaEye className="eye-color" />
+                      )}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
@@ -92,33 +96,31 @@ const Login: React.FC = () => {
                 borderRadius={5}
                 type="submit"
                 variant="solid"
-                // colorScheme="teal"
+                color="white"
                 width="full"
-                className="login__button font-size__800"
+                className="primary__background-color font-size__800"
               >
                 Login
               </Button>
-              <Box display='inline-flex'>
+              <Box display="inline-flex">
                 <Box mt={3}>
                   New to us?{" "}
-                  <Link color="teal.500" href="#">
+                  <Link className="primary__color" href="#">
                     Sign Up
                   </Link>
                 </Box>
-                <Box display='flex' flex={1}></Box>
-                <Box display='inline-flex'>
+                <Box display="flex" flex={1}></Box>
+                <Box display="inline-flex">
                   <Text mt={3} pr={5}>
                     SignIn with{" "}
                   </Text>
                   <GoogleSignUp />
                 </Box>
               </Box>
-
             </Stack>
           </form>
         </Box>
       </Stack>
-
     </Flex>
   );
 };
