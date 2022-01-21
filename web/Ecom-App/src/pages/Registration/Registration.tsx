@@ -1,108 +1,122 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Registration.css'
 
 import {
     Flex,
-    Heading,
-    Input,
-    Button,
-    InputGroup,
-    Stack,
-    InputLeftElement,
-    chakra,
     Box,
-    Link,
-    Avatar,
     FormControl,
-    FormHelperText,
-    InputRightElement
-} from "@chakra-ui/react";
-
-import { FaUserAlt, FaLock } from "react-icons/fa";
-const CFaUserAlt = chakra(FaUserAlt);
-const CFaLock = chakra(FaLock);
-import './Registration.css';
+    FormLabel,
+    InputGroup,
+    HStack,
+    InputRightElement,
+    Stack,
+    Heading,
+    Text,
+    useColorModeValue,
+    Select,
+} from '@chakra-ui/react';
+import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
+import CustomInput from '../../common/atom/CustomInput';
+import CustomButton from '../../common/atom/CustomButton';
+import CustomFormControl from '../../common/molecules/CustomFormControl';
+import CustomLink from '../../common/atom/CustomLink';
+import CustomSelect from '../../common/atom/CustomSelect';
 
 const Registration: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [showGST, setShowGST] = useState(false);
+    let selected: string;
+    const hangleSelect = (e: any) => {
+        console.log(e.target.value);
+        selected = e.target.value
+    }
+    // useEffect(() => {
+    //     if(selected === 'industrial') {
+    //         setShowGST(true);
+    //     }
+    // },[selected])
 
-    const handleShowClick = () => setShowPassword(!showPassword);
     return (
         <Flex
-            flexDirection="column"
-            width="100wh"
-            height="100vh"
-            backgroundColor="gray.200"
-            justifyContent="center"
-            alignItems="center"
-        >
-            <Stack
-                flexDir="column"
-                mb="2"
-                justifyContent="center"
-                alignItems="center"
-            >
-                <Avatar bg="teal.500" />
-                <Heading color="teal.400">Welcome</Heading>
-                <Box minW={{ base: "90%", md: "468px" }}>
-                    <form>
-                        <Stack
-                            spacing={4}
-                            p="1rem"
-                            backgroundColor="whiteAlpha.900"
-                            boxShadow="md"
-                            borderRadius={10}
-                        >
-                            <FormControl>
+            minH={'100vh'}
+            align={'center'}
+            justify={'center'}
+            bg={useColorModeValue('gray.50', 'gray.800')}>
+            <Stack spacing={8} mx={'auto'} maxW={'lg'} py={12} px={6}>
+                <Stack align={'center'}>
+                    <Heading fontSize={'4xl'} textAlign={'center'}>
+                        Sign up
+                    </Heading>
+                    {/* <Text fontSize={'lg'} color={'gray.600'}>
+                        to enjoy all of our cool features ✌️
+                    </Text> */}
+                </Stack>
+                <Box
+                    rounded={'lg'}
+                    bg={useColorModeValue('white', 'gray.700')}
+                    boxShadow={'lg'}
+                    p={8}>
+                    <Stack spacing={4}>
+                        <HStack>
+                            <CustomFormControl id="firstName" type='text' placeholder='first name'>
+                                First Name
+                            </CustomFormControl>
+                            <CustomFormControl id="lastName" type='text' placeholder='last name'>
+                                Last Name
+                            </CustomFormControl>
+                        </HStack>
+                        <Box>
+                            <CustomSelect onChange={hangleSelect} variant='outline' placeholder='Please Select'>
+                                <option value='personal'>Personal</option>
+                                <option value='industrial'>Industrial</option>
+                            </CustomSelect>
+                            {/* <Select onChange={hangleSelect} variant='outline' placeholder='Please Select'>
+                                <option value='personal'>Personal</option>
+                                <option value='industrial'>Industrial</option>
+                            </Select> */}
+                        </Box>
+                        <CustomFormControl isRequired id="phone" type='phone' placeholder='phone number'>
+                            Phone Number
+                        </CustomFormControl>
+                        <CustomFormControl isRequired id="email" type='email' placeholder='Email Address'>
+                            Email address
+                        </CustomFormControl>
+                        <Box>
+                            <FormControl id="password" isRequired>
+                                <FormLabel>Password</FormLabel>
                                 <InputGroup>
-                                    <InputLeftElement
-                                        pointerEvents="none"
-                                        children={<CFaUserAlt color="gray.300" />}
-                                    />
-                                    <Input type="email" placeholder="email address" />
-                                </InputGroup>
-                            </FormControl>
-                            <FormControl>
-                                <InputGroup>
-                                    <InputLeftElement
-                                        pointerEvents="none"
-                                        color="gray.300"
-                                        children={<CFaLock color="gray.300" />}
-                                    />
-                                    <Input
-                                        type={showPassword ? "text" : "password"}
-                                        placeholder="Password"
-                                    />
-                                    <InputRightElement width="4.5rem">
-                                        <Button h="1.75rem" size="sm" onClick={handleShowClick}>
-                                            {showPassword ? "Hide" : "Show"}
-                                        </Button>
+                                    <CustomInput type={showPassword ? 'text' : 'password'} placeholder='Password' />
+                                    <InputRightElement h={'full'}>
+                                        <CustomButton
+                                            size='sm'
+                                            variant={'ghost'}
+                                            onClick={() =>
+                                                setShowPassword((showPassword) => !showPassword)
+                                            }
+                                        >
+                                            {showPassword ? <ViewIcon /> : <ViewOffIcon />}
+                                        </CustomButton>
                                     </InputRightElement>
                                 </InputGroup>
-                                <FormHelperText textAlign="right">
-                                    <Link>forgot password?</Link>
-                                </FormHelperText>
                             </FormControl>
-                            <Button
-                                borderRadius={5}
-                                type="submit"
-                                variant="solid"
-                                // colorScheme="teal"
-                                width="full"
-                                className="login__button font-size__800"
-                            >
-                                Login
-                            </Button>
+                        </Box>
+                        <Stack spacing={10} pt={2}>
+                            <CustomButton size="lg"
+                                bg={'var(--primary-color)'}
+                                color={'white'}
+                                _hover={{
+                                    bg: 'var(--primary-color-800)'
+                                }}>Sign up</CustomButton>
                         </Stack>
-                    </form>
+                        <Stack pt={6}>
+                            <Text align={'center'}>
+                                Already a user?
+                                <CustomLink color={'var(--primary-color)'} to='/login'>Login</CustomLink>
+                            </Text>
+                        </Stack>
+                    </Stack>
                 </Box>
             </Stack>
-            <Box>
-                New to us?{" "}
-                <Link color="teal.500" href="#">
-                    Sign Up
-                </Link>
-            </Box>
         </Flex>
     );
 };

@@ -9,13 +9,15 @@ import {
   InputLeftElement,
   chakra,
   Box,
-  Link,
+  // Link,
   Avatar,
   FormControl,
   FormHelperText,
   InputRightElement,
   Text,
 } from "@chakra-ui/react";
+
+import { Link } from "react-router-dom";
 
 import { FaUserAlt, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -27,6 +29,10 @@ const CFcGoogle = chakra(FcGoogle);
 
 import GoogleSignUp from "../../auth/Google";
 import "./Login.css";
+import CustomInput from "../../common/atom/CustomInput";
+import CustomButton from "../../common/atom/CustomButton";
+import { config } from "../../config/config";
+import CustomLink from "../../common/atom/CustomLink";
 
 const Login: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -54,6 +60,7 @@ const Login: React.FC = () => {
             <Stack
               spacing={4}
               p="1rem"
+              pt="3rem"
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
               borderRadius={10}
@@ -64,7 +71,7 @@ const Login: React.FC = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="Email address" />
+                  <CustomInput className="custom__input-space" type="email" placeholder="Email address" />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -74,22 +81,21 @@ const Login: React.FC = () => {
                     color="gray.300"
                     children={<CFaLock color="gray.300" />}
                   />
-                  <Input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                  />
-                  <InputRightElement width="4.7rem">
-                    <Button h="1.75rem" size="sm" onClick={handleShowClick}>
+                  <CustomInput className="custom__input-space" type={showPassword ? "text" : "password"} placeholder="Password" />
+                  <InputRightElement
+                    h={'full'}
+                  >
+                    <CustomButton size="sm" onClick={handleShowClick}>
                       {showPassword ? (
                         <CFaEyeSlash className="eye-color" />
                       ) : (
                         <CFaEye className="eye-color" />
                       )}
-                    </Button>
+                    </CustomButton>
                   </InputRightElement>
                 </InputGroup>
                 <FormHelperText textAlign="right">
-                  <Link>forgot password?</Link>
+                  <CustomLink color='#718fb5' to="/forgotPassword">forgot password?</CustomLink>
                 </FormHelperText>
               </FormControl>
               <Button
@@ -103,11 +109,9 @@ const Login: React.FC = () => {
                 Login
               </Button>
               <Box className="login__actions">
-                <Box mt={3}>
+                <Box mt={1}>
                   New to us?{" "}
-                  <Link className="primary__color" href="#">
-                    Sign Up
-                  </Link>
+                  <CustomLink color="var(--primary-color)" to="/registration">Sign Up</CustomLink>
                 </Box>
                 <Box display="flex" flex={1}></Box>
                 <Box display="inline-flex">
