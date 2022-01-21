@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Registration.css'
 
 import {
@@ -13,15 +13,29 @@ import {
     Heading,
     Text,
     useColorModeValue,
+    Select,
 } from '@chakra-ui/react';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import CustomInput from '../../common/atom/CustomInput';
 import CustomButton from '../../common/atom/CustomButton';
-import CustomFormControl from '../../common/atom/CustomFormControl';
+import CustomFormControl from '../../common/molecules/CustomFormControl';
 import CustomLink from '../../common/atom/CustomLink';
+import CustomSelect from '../../common/atom/CustomSelect';
 
 const Registration: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [showGST, setShowGST] = useState(false);
+    let selected: string;
+    const hangleSelect = (e: any) => {
+        console.log(e.target.value);
+        selected = e.target.value
+    }
+    // useEffect(() => {
+    //     if(selected === 'industrial') {
+    //         setShowGST(true);
+    //     }
+    // },[selected])
+
     return (
         <Flex
             minH={'100vh'}
@@ -51,10 +65,20 @@ const Registration: React.FC = () => {
                                 Last Name
                             </CustomFormControl>
                         </HStack>
-                        <CustomFormControl id="phone" type='phone' placeholder='phone number'>
+                        <Box>
+                            <CustomSelect onChange={hangleSelect} variant='outline' placeholder='Please Select'>
+                                <option value='personal'>Personal</option>
+                                <option value='industrial'>Industrial</option>
+                            </CustomSelect>
+                            {/* <Select onChange={hangleSelect} variant='outline' placeholder='Please Select'>
+                                <option value='personal'>Personal</option>
+                                <option value='industrial'>Industrial</option>
+                            </Select> */}
+                        </Box>
+                        <CustomFormControl isRequired id="phone" type='phone' placeholder='phone number'>
                             Phone Number
                         </CustomFormControl>
-                        <CustomFormControl id="email" type='email' placeholder='Email Address'>
+                        <CustomFormControl isRequired id="email" type='email' placeholder='Email Address'>
                             Email address
                         </CustomFormControl>
                         <Box>
