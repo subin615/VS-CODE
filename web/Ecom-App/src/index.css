@@ -9,6 +9,7 @@
   --primary-color-800: rgba(115, 112, 216, 0.8);
   --primary-color-900: rgba(115, 112, 216, 0.9);
   --primary-color: rgba(115, 112, 216, 1);
+  --primary-color-800: rgba(115, 112, 216, 0.8);
 }
 
 .font-size__1000 {
