@@ -21,20 +21,31 @@ import CustomButton from '../../common/atom/CustomButton';
 import CustomFormControl from '../../common/molecules/CustomFormControl';
 import CustomLink from '../../common/atom/CustomLink';
 import CustomSelect from '../../common/atom/CustomSelect';
+import { useDispatch, useSelector } from 'react-redux';
+import { regisAction } from '../../store/regis-slice';
 
 const Registration: React.FC = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showGST, setShowGST] = useState(false);
-    let selected: string;
+    const [selected, setSelected] = useState('');
+    // const selectedOption = useSelector(state => state.regis.selectedAccountType);
+    // const dispatch = useDispatch()
     const hangleSelect = (e: any) => {
-        console.log(e.target.value);
-        selected = e.target.value
+        setSelected(e.target.value)
+        if (e.target.value === 'industrial') {
+            setShowGST(true);
+        } else if (e.target.value === 'personal') {
+            setShowGST(false);
+        }
     }
-    // useEffect(() => {
-    //     if(selected === 'industrial') {
-    //         setShowGST(true);
-    //     }
-    // },[selected])
+
+    useEffect(() => {
+        if (selected === 'industrial') {
+            setShowGST(true);
+        } else if (selected === 'personal') {
+            setShowGST(false);
+        }
+    }, [selected])
 
     return (
         <Flex
@@ -66,15 +77,14 @@ const Registration: React.FC = () => {
                             </CustomFormControl>
                         </HStack>
                         <Box>
-                            <CustomSelect onChange={hangleSelect} variant='outline' placeholder='Please Select'>
+                            <CustomSelect isRequired onChange={hangleSelect} variant='outline' placeholder='Please Select'>
                                 <option value='personal'>Personal</option>
                                 <option value='industrial'>Industrial</option>
                             </CustomSelect>
-                            {/* <Select onChange={hangleSelect} variant='outline' placeholder='Please Select'>
-                                <option value='personal'>Personal</option>
-                                <option value='industrial'>Industrial</option>
-                            </Select> */}
                         </Box>
+                        {showGST && <CustomFormControl isRequired id="gst" type="text" placeholder='GST number'>
+                            GST Number
+                        </CustomFormControl>}
                         <CustomFormControl isRequired id="phone" type='phone' placeholder='phone number'>
                             Phone Number
                         </CustomFormControl>
