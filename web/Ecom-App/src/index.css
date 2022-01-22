@@ -1,4 +1,13 @@
 :root {
+  --primary-color-100: rgba(115, 112, 216, 0.1);
+  --primary-color-200: rgba(115, 112, 216, 0.2);
+  --primary-color-300: rgba(115, 112, 216, 0.3);
+  --primary-color-400: rgba(115, 112, 216, 0.4);
+  --primary-color-500: rgba(115, 112, 216, 0.5);
+  --primary-color-600: rgba(115, 112, 216, 0.6);
+  --primary-color-700: rgba(115, 112, 216, 0.7);
+  --primary-color-800: rgba(115, 112, 216, 0.8);
+  --primary-color-900: rgba(115, 112, 216, 0.9);
   --primary-color: rgba(115, 112, 216, 1);
   --primary-color-800: rgba(115, 112, 216, 0.8);
 }
@@ -7,6 +16,11 @@
   font-size: 1rem !important;
 }
 
+.css-fjlme8:focus,
+a {
+  box-shadow: none !important;
+  color: gray;
+}
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: #f1f1f1;
