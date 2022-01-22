@@ -5,6 +5,7 @@ import Home from "../../pages/home/Home";
 import AuthNavBar from "../../components/navigationBar/AuthNavBar";
 
 const AuthorizedRoute: React.FC = () => {
+  window.scrollTo(0, 0);
   return (
     <>
       <AuthNavBar />
