@@ -16,7 +16,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import DesktopNav from "../../common/organisms/DesktopNav";
 import MobileNav from "../../common/organisms/MobileNav";
 
-const NavBar: React.FC = () => {
+const AuthNavBar: React.FC = () => {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
 
@@ -64,7 +64,7 @@ const NavBar: React.FC = () => {
           </Flex>
         </Flex>
 
-        <Stack
+        {/* <Stack
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
           direction={"row"}
@@ -95,7 +95,7 @@ const NavBar: React.FC = () => {
           >
             Sign Up
           </Button>
-        </Stack>
+        </Stack> */}
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -105,4 +105,4 @@ const NavBar: React.FC = () => {
   );
 };
 
-export default NavBar;
+export default AuthNavBar;

@@ -6,7 +6,7 @@ import AuthorizedRoute from "./authorized/AuthorizedRoute";
 const Navigation: React.FC = () => {
   const [token, _] = useState(() => {
     const getToken = localStorage.getItem("token");
-    // if(!getToken)return false
+    if (!getToken) return false;
     return true;
   });
   return (
