@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom";
-import Navigation from './routes/index'
+import Navigation from "./routes/index";
 import { ChakraProvider } from "@chakra-ui/provider";
 import "./index.css";
 
@@ -14,5 +14,6 @@ export default App;
 ReactDOM.render(
   <ChakraProvider>
     <App />
-  </ChakraProvider>
-  , document.getElementById("app"));
+  </ChakraProvider>,
+  document.getElementById("app")
+);

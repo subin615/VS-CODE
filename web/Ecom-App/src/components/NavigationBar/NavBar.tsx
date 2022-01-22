@@ -19,14 +19,13 @@ import MobileNav from "../../common/organisms/MobileNav";
 const NavBar: React.FC = () => {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
-
   const handleRouting = (pathName: string) => {
     navigate(`/${pathName}`);
   };
   return (
-    <Box>
+    <Box position={"sticky"} top={0} zIndex={10}>
       <Flex
-        bg={"var(--primary-color-600)"}
+        bg={"var(--primary-color)"}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -56,6 +55,7 @@ const NavBar: React.FC = () => {
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
             onClick={() => handleRouting("home")}
+            cursor={"pointer"}
           >
             Logo
           </Text>
@@ -72,13 +72,12 @@ const NavBar: React.FC = () => {
           spacing={6}
         >
           <Button
-            as={"a"}
             fontSize={"sm"}
             fontWeight={400}
             variant={"link"}
             href={"#"}
             color={"white"}
-            onClick={() => handleRouting("registration")}
+            onClick={() => handleRouting("login")}
           >
             Sign In
           </Button>
@@ -92,7 +91,7 @@ const NavBar: React.FC = () => {
             _hover={{
               bg: "var(--primary-color)",
             }}
-            onClick={() => handleRouting("login")}
+            onClick={() => handleRouting("registration")}
           >
             Sign Up
           </Button>

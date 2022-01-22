@@ -26,9 +26,10 @@ const Registration: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showGST, setShowGST] = useState(false);
   let selected: string;
-  const hangleSelect = (e: any) => {
-    console.log(e.target.value);
-    selected = e.target.value;
+  const hangleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+    const { value } = event.target;
+    console.log(value);
+    selected = value;
   };
   // useEffect(() => {
   //     if(selected === 'industrial') {
@@ -38,7 +39,7 @@ const Registration: React.FC = () => {
 
   return (
     <Flex
-      minH={"100vh"}
+      minH={"90vh"}
       align={"center"}
       justify={"center"}
       className="login__background-color"
@@ -76,6 +77,7 @@ const Registration: React.FC = () => {
               </CustomFormControl>
             </HStack>
             <Box>
+              <FormLabel>User Type</FormLabel>
               <CustomSelect
                 onChange={hangleSelect}
                 variant="outline"

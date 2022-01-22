@@ -42,7 +42,7 @@ const Login: React.FC = () => {
     <Flex
       flexDirection="column"
       width="100wh"
-      height="100vh"
+      height="90vh"
       justifyContent="center"
       alignItems="center"
       className="login__background-color"
@@ -71,7 +71,11 @@ const Login: React.FC = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <CustomInput className="custom__input-space" type="email" placeholder="Email address" />
+                  <CustomInput
+                    className="custom__input-space"
+                    type="email"
+                    placeholder="Email address"
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -81,10 +85,12 @@ const Login: React.FC = () => {
                     color="gray.300"
                     children={<CFaLock color="gray.300" />}
                   />
-                  <CustomInput className="custom__input-space" type={showPassword ? "text" : "password"} placeholder="Password" />
-                  <InputRightElement
-                    h={'full'}
-                  >
+                  <CustomInput
+                    className="custom__input-space"
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                  />
+                  <InputRightElement h={"full"}>
                     <CustomButton size="sm" onClick={handleShowClick}>
                       {showPassword ? (
                         <CFaEyeSlash className="eye-color" />
@@ -95,7 +101,9 @@ const Login: React.FC = () => {
                   </InputRightElement>
                 </InputGroup>
                 <FormHelperText textAlign="right">
-                  <CustomLink color='#718fb5' to="/forgotPassword">forgot password?</CustomLink>
+                  <CustomLink color="#718fb5" to="/forgotPassword">
+                    forgot password?
+                  </CustomLink>
                 </FormHelperText>
               </FormControl>
               <Button
@@ -111,7 +119,9 @@ const Login: React.FC = () => {
               <Box className="login__actions">
                 <Box mt={1}>
                   New to us?{" "}
-                  <CustomLink color="var(--primary-color)" to="/registration">Sign Up</CustomLink>
+                  <CustomLink color="var(--primary-color)" to="/registration">
+                    Sign Up
+                  </CustomLink>
                 </Box>
                 <Box display="flex" flex={1}></Box>
                 <Box display="inline-flex">
