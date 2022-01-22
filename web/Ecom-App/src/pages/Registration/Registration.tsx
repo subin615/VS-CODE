@@ -30,6 +30,11 @@ const Registration: React.FC = () => {
         const { value } = event.target;
         console.log(value);
         selected = value;
+        if (selected === 'personal') {
+            setShowGST(false);
+        } else if (selected === 'industrial') {
+            setShowGST(true);
+        }
     };
     // useEffect(() => {
     //     if(selected === 'industrial') {
@@ -76,7 +81,7 @@ const Registration: React.FC = () => {
                                 Last Name
                             </CustomFormControl>
                         </HStack>
-                        <Box>
+                        <Box mb={10}>
                             <FormLabel>User Type</FormLabel>
                             <CustomSelect
                                 onChange={hangleSelect}
@@ -86,10 +91,7 @@ const Registration: React.FC = () => {
                                 <option value="personal">Personal</option>
                                 <option value="industrial">Industrial</option>
                             </CustomSelect>
-                            {/* <Select onChange={hangleSelect} variant='outline' placeholder='Please Select'>
-                                <option value='personal'>Personal</option>
-                                <option value='industrial'>Industrial</option>
-                            </Select> */}
+                            {showGST && <CustomFormControl isRequired id="gstNumber" type="text" placeholder="GST number">GST Number</CustomFormControl>}
                         </Box>
                         <CustomFormControl
                             isRequired
