@@ -16,16 +16,17 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import DesktopNav from "../../common/organisms/DesktopNav";
 import MobileNav from "../../common/organisms/MobileNav";
 
-const NavBar: React.FC = () => {
+const AuthNavBar: React.FC = () => {
   const { isOpen, onToggle } = useDisclosure();
   const navigate = useNavigate();
+
   const handleRouting = (pathName: string) => {
     navigate(`/${pathName}`);
   };
   return (
-    <Box position={"sticky"} top={0} zIndex={10}>
+    <Box>
       <Flex
-        bg={"var(--primary-color)"}
+        bg={"var(--primary-color-600)"}
         color={useColorModeValue("gray.600", "white")}
         minH={"60px"}
         py={{ base: 2 }}
@@ -54,8 +55,6 @@ const NavBar: React.FC = () => {
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
-            onClick={() => handleRouting("home")}
-            cursor={"pointer"}
           >
             Logo
           </Text>
@@ -65,19 +64,20 @@ const NavBar: React.FC = () => {
           </Flex>
         </Flex>
 
-        <Stack
+        {/* <Stack
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
         >
           <Button
+            as={"a"}
             fontSize={"sm"}
             fontWeight={400}
             variant={"link"}
             href={"#"}
             color={"white"}
-            onClick={() => handleRouting("login")}
+            onClick={() => handleRouting("registration")}
           >
             Sign In
           </Button>
@@ -91,11 +91,11 @@ const NavBar: React.FC = () => {
             _hover={{
               bg: "var(--primary-color)",
             }}
-            onClick={() => handleRouting("registration")}
+            onClick={() => handleRouting("login")}
           >
             Sign Up
           </Button>
-        </Stack>
+        </Stack> */}
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -105,4 +105,4 @@ const NavBar: React.FC = () => {
   );
 };
 
-export default NavBar;
+export default AuthNavBar;
