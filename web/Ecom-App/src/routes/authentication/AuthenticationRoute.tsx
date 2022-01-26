@@ -4,6 +4,8 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import NavBar from "../../components/navigationBar/NavBar";
 import Home from "../../pages/home/Home";
 import ProductDetails from "../../pages/productDetails/ProductDetails";
+import MyOrders from "../../pages/myOrders/MyOrders";
+import MyCarts from "../../pages/myCarts/MyCarts";
 
 const Registration = lazy(
   () => import("../../pages/registration/Registration")
@@ -24,6 +26,8 @@ const AuthenicationRoute: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/home" element={<Home />} />
         <Route path="/productDetails/:id" element={<ProductDetails />} />
+        <Route path="/myorders" element={<MyOrders />} />
+        <Route path="/mycarts" element={<MyCarts />} />
       </Routes>
     </>
   );
