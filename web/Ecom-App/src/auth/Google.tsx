@@ -7,17 +7,17 @@ import {
 } from "react-google-login";
 import { ClientInfo } from "../util/constants";
 import "./google.css";
+import UserAPI from "../server/userAPI";
 
 type GoogleAuth = GoogleLoginResponse | GoogleLoginResponseOffline;
 
 const GoogleSignUp: React.FC = () => {
   const loginSuccess = (res: GoogleAuth) => {
-    console.log("login success", res);
-    localStorage.setItem(
-      "token",
-      JSON.stringify((res as GoogleLoginResponse).profileObj)
-    );
+    const successResponse = res as GoogleLoginResponse;
+    // localStorage.setItem("token", JSON.stringify(successResponse.profileObj));
+    console.log(successResponse.profileObj);
   };
+
   const loginFailure = (res: GoogleAuth) => {
     console.log("login failure", res);
   };

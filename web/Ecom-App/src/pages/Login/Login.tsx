@@ -9,15 +9,12 @@ import {
   InputLeftElement,
   chakra,
   Box,
-  // Link,
   Avatar,
   FormControl,
   FormHelperText,
   InputRightElement,
   Text,
 } from "@chakra-ui/react";
-
-import { Link } from "react-router-dom";
 
 import { FaUserAlt, FaLock, FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
@@ -126,7 +123,7 @@ const Login: React.FC = () => {
                 <Box display="flex" flex={1}></Box>
                 <Box display="inline-flex">
                   <Text mt={3} pr={5}>
-                    SignIn with{" "}
+                    Sign Up with{" "}
                   </Text>
                   <GoogleSignUp />
                 </Box>
