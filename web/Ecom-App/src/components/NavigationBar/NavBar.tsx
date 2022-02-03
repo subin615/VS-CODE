@@ -49,9 +49,9 @@ const NavBar: React.FC = () => {
             aria-label={"Toggle Navigation"}
           />
         </Flex>
-        <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
+        <Flex flex={{ base: 1 }} justify={{ base: "start", md: "start" }}>
           <Text
-            textAlign={useBreakpointValue({ base: "center", md: "left" })}
+            textAlign={useBreakpointValue({ base: "left", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
             onClick={() => handleRouting("home")}
@@ -66,6 +66,7 @@ const NavBar: React.FC = () => {
         </Flex>
 
         <Stack
+          display={{ base: "none", md: "flex" }}
           flex={{ base: 1, md: 0 }}
           justify={"flex-end"}
           direction={"row"}
@@ -73,21 +74,21 @@ const NavBar: React.FC = () => {
         >
           <Button
             fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"#"}
+            fontWeight={600}
             color={"white"}
+            bg={"var(--primary-color)"}
+            _hover={{
+              bg: "var(--primary-color)",
+            }}
             onClick={() => handleRouting("login")}
           >
             Sign In
           </Button>
           <Button
-            display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
             fontWeight={600}
             color={"white"}
             bg={"var(--primary-color)"}
-            href={"#"}
             _hover={{
               bg: "var(--primary-color)",
             }}

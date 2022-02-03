@@ -62,7 +62,7 @@ const Carousels = () => {
   return (
     <Box
       position={"relative"}
-      height={"400px"}
+      height={"500px"}
       width={"full"}
       overflow={"hidden"}
     >
@@ -117,7 +117,7 @@ const Carousels = () => {
             backgroundImage={`url(${card.image})`}
           >
             {/* This is the block you need to change, to customize the caption */}
-            <Container size="container.lg" height="400px" position="relative">
+            <Container size="container.lg" height="500px" position="relative">
               <Stack
                 spacing={6}
                 w={"full"}

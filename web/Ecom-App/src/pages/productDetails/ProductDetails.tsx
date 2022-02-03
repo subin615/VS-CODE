@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
-  chakra,
   Container,
   Stack,
   Text,
@@ -13,18 +12,30 @@ import {
   SimpleGrid,
   StackDivider,
   useColorModeValue,
-  VisuallyHidden,
   List,
   ListItem,
 } from "@chakra-ui/react";
-import { FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 import { MdLocalShipping } from "react-icons/md";
-import { useRoutes } from "react-router-dom";
 
 const ProductDetails: React.FC = () => {
+  /**@states */
+  const [addToCart, setAddToCart] = useState<boolean>(false);
+
+  /**@lifecycle */
   useEffect(() => {
     console.log();
   }, []);
+
+  /**
+   * @fucntion add product to cart
+   * @param {productId} productId id of the product
+   * @return {void} void
+   */
+  const addProductToCart = (productId: number): void => {
+    //productId will be used for backend.
+    setAddToCart(!addToCart);
+  };
+
   return (
     <Container maxW={"7xl"}>
       <SimpleGrid
@@ -177,15 +188,20 @@ const ProductDetails: React.FC = () => {
             mt={8}
             size={"lg"}
             py={"7"}
-            bg={useColorModeValue("gray.900", "gray.50")}
+            bg={
+              addToCart
+                ? "var(--primary-color)"
+                : useColorModeValue("gray.900", "gray.50")
+            }
             color={useColorModeValue("white", "gray.900")}
             textTransform={"uppercase"}
             _hover={{
               transform: "translateY(2px)",
               boxShadow: "lg",
             }}
+            onClick={() => addProductToCart(1)}
           >
-            Add to cart
+            {addToCart ? "Moved to cart" : "Add to cart"}
           </Button>
 
           <Stack direction="row" alignItems="center" justifyContent={"center"}>
