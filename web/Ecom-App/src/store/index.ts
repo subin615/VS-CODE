@@ -1,9 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit"
-import regis from './regis-slice'
+import registerSlice from './regis-slice'
 
 const store = configureStore({
     reducer: {
-        regis: regis
+        regis: registerSlice,
     }
 })
 
