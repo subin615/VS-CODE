@@ -21,30 +21,27 @@ import CustomButton from "../../common/atom/CustomButton";
 import CustomFormControl from "../../common/molecules/CustomFormControl";
 import CustomLink from "../../common/atom/CustomLink";
 import CustomSelect from "../../common/atom/CustomSelect";
-import userAPI from "../../server/userAPI";
+import { selectRegis } from "../../store/regis-slice";
+import { useDispatch, useSelector } from "react-redux";
+import { regisAction } from "../../store/regis-slice";
 
 const Registration: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showGST, setShowGST] = useState(false);
+  const isGstReq = useSelector(selectRegis);
+  console.log("is gst", isGstReq);
+
+  const dispatch = useDispatch();
   let selected: string;
   const hangleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     const { value } = event.target;
-    console.log(value);
     selected = value;
-    if (selected === "personal") {
-      setShowGST(false);
-    } else if (selected === "industrial") {
-      setShowGST(true);
-    }
-  };
-  const handleSignIn = async () => {
-    const res = await userAPI.registration({
-      email: "ssubin171@gmail.com",
-      name: "subin",
-      password: "subin123",
-      userType: "BUSINESS",
-    });
-    console.log("user registration", res);
+    dispatch(regisAction.isPersonal(selected));
+    // if (selected === 'personal') {
+    //     setShowGST(false);
+    // } else if (selected === 'industrial') {
+    //     setShowGST(true);
+    // }
   };
   // useEffect(() => {
   //     if(selected === 'industrial') {
@@ -101,7 +98,7 @@ const Registration: React.FC = () => {
                 <option value="personal">Personal</option>
                 <option value="industrial">Industrial</option>
               </CustomSelect>
-              {showGST && (
+              {isGstReq.showGST && (
                 <CustomFormControl
                   isRequired
                   id="gstNumber"
@@ -158,7 +155,6 @@ const Registration: React.FC = () => {
                 _hover={{
                   bg: "var(--primary-color-800)",
                 }}
-                onClick={handleSignIn}
               >
                 Sign up
               </CustomButton>
