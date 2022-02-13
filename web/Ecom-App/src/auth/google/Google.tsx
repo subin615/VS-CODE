@@ -5,9 +5,9 @@ import {
   GoogleLoginResponseOffline,
   GoogleLogout,
 } from "react-google-login";
-import { ClientInfo } from "../util/constants";
+import { ClientInfo } from "../../util/constants";
 import "./google.css";
-import UserAPI from "../server/userAPI";
+import UserAPI from "../../server/userAPI";
 
 type GoogleAuth = GoogleLoginResponse | GoogleLoginResponseOffline;
 

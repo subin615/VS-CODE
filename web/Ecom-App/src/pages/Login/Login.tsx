@@ -24,7 +24,7 @@ const CFaEye = chakra(FaEye);
 const CFaEyeSlash = chakra(FaEyeSlash);
 const CFcGoogle = chakra(FcGoogle);
 
-import GoogleSignUp from "../../auth/Google";
+import GoogleSignUp from "../../auth/google/Google";
 import "./Login.css";
 import CustomInput from "../../common/atom/CustomInput";
 import CustomButton from "../../common/atom/CustomButton";
